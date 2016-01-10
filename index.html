@@ -6,11 +6,34 @@
   <script type="text/javascript" src="js/app.js"></script>
 </head>
 <body>
+<div class="modal">
+  <input id="modal" type="checkbox" name="modal" tabindex="1">
+  <label for="modal" id="mod_open">Launch Modal</label>
+  <div class="modal__overlay">
+    <div class="modal__box">
+      <label for="modal">&#10006;</label>
+      <h2>You Won!</h2>
+      <img src="http://i.giphy.com/9RPcZ1p3yCxtC.gif">
+    </div>
+  </div>
+</div>
+
 <div class="wrapper head">
    <h1>Hangman</h1>
 </div>
 <div class="wrapper">
-    
+    <div class="selCat">
+      <h4>Kindly select a category!</h4>
+      <span class="custom-dropdown custom-dropdown--white">
+          <select class="custom-dropdown__select custom-dropdown__select--white">
+              <option>The Shawshank Redemption</option>
+              <option>The Godfather</option>
+              <option>Pulp Fiction</option>
+              <option>The Good, the Bad and the Ugly</option>
+              <option>12 Angry Men</option>
+          </select>
+      </span>
+    </div>
     <p id="catagoryName"></p>
     <div id="hold">
     </div>

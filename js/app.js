@@ -47,6 +47,10 @@ window.onload = function () {
       catagoryName.innerHTML = "The Chosen Category Is Films";
     } else if (chosenCategory === categories[2]) {
       catagoryName.innerHTML = "The Chosen Category Is Cities";
+    } else if (chosenCategory === categories[3]) {
+      catagoryName.innerHTML = "The Chosen Category Is Countries";
+    } else if (chosenCategory === categories[4]) {
+      catagoryName.innerHTML = "The Chosen Category Is Cricket Teams";
     }
   }
 
@@ -85,6 +89,8 @@ window.onload = function () {
     for (var i = 0; i < geusses.length; i++) {
       if (counter + space === geusses.length) {
         showLives.innerHTML = "You Win!";
+        document.getElementById('modal').click();
+        document.getElementById('reset').click();
       }
     }
   }
@@ -104,6 +110,10 @@ window.onload = function () {
     context.beginPath();
     context.strokeStyle = "#fff";
     context.lineWidth = 2;
+    draw (0, 150, 150, 150);
+    draw (10, 0, 10, 600);
+    draw (0, 5, 70, 5);
+    draw (60, 5, 60, 15);
   };
   
     head = function(){
@@ -112,6 +122,7 @@ window.onload = function () {
       context.beginPath();
       context.arc(60, 25, 10, 0, Math.PI*2, true);
       context.stroke();
+      draw (60, 36, 60, 70);
     }
     
   draw = function($pathFromx, $pathFromy, $pathTox, $pathToy) {
@@ -119,27 +130,7 @@ window.onload = function () {
     context.moveTo($pathFromx, $pathFromy);
     context.lineTo($pathTox, $pathToy);
     context.stroke(); 
-}
-
-   frame1 = function() {
-     draw (0, 150, 150, 150);
-   };
-   
-   frame2 = function() {
-     draw (10, 0, 10, 600);
-   };
-  
-   frame3 = function() {
-     draw (0, 5, 70, 5);
-   };
-  
-   frame4 = function() {
-     draw (60, 5, 60, 15);
-   };
-  
-   torso = function() {
-     draw (60, 36, 60, 70);
-   };
+  }
   
    rightArm = function() {
      draw (60, 46, 100, 50);
@@ -157,7 +148,7 @@ window.onload = function () {
      draw (60, 70, 20, 100);
    };
   
-  drawArray = [rightLeg, leftLeg, rightArm, leftArm,  torso,  head, frame4, frame3, frame2, frame1]; 
+  drawArray = [rightLeg, leftLeg, rightArm, leftArm, head]; 
 
 
   // OnClick Function
@@ -187,9 +178,11 @@ window.onload = function () {
   // Play
   play = function () {
     categories = [
-        ["everton", "liverpool", "swansea", "chelsea", "hull", "manchester-city", "newcastle-united"],
+        ["everton", "liverpool", "swansea", "chelsea", "manchester-city"],
         ["alien", "dirty-harry", "gladiator", "finding-nemo", "jaws"],
-        ["manchester", "milan", "madrid", "amsterdam", "prague"]
+        ["manchester", "milan", "madrid", "amsterdam", "prague"],
+        ["pakistan", "Russia", "China", "Australia", "India"],
+        ["pakistan", "Ireland", "South-Africa", "Australia", "India"]
     ];
 
     chosenCategory = categories[Math.floor(Math.random() * categories.length)];
@@ -199,7 +192,7 @@ window.onload = function () {
     buttons();
 
     geusses = [ ];
-    lives = 10;
+    lives = 5;
     counter = 0;
     space = 0;
     result();
@@ -214,10 +207,12 @@ window.onload = function () {
 
     hint.onclick = function() {
 
-      hints = [
+    hints = [
         ["Based in Mersyside", "Based in Mersyside", "First Welsh team to reach the Premier Leauge", "Owned by A russian Billionaire", "Once managed by Phil Brown", "2013 FA Cup runners up", "Gazza's first club"],
         ["Science-Fiction horror film", "1971 American action film", "Historical drama", "Anamated Fish", "Giant great white shark"],
-        ["Northern city in the UK", "Home of AC and Inter", "Spanish capital", "Netherlands capital", "Czech Republic capital"]
+        ["Northern city in the UK", "Home of AC and Inter", "Spanish capital", "Netherlands capital", "Czech Republic capital"],
+        ["The best country in the world", "The biggest Country?", "USA's rival", "Kangaroos?", "Home to spices"],
+        ["The best country in the world", "Ireland :P", "Birth place of Human rights movement", "Kangaroos?", "Home to spices"],
     ];
 
     var catagoryIndex = categories.indexOf(chosenCategory);
