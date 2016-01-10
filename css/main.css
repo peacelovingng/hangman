@@ -21,7 +21,7 @@ body {
 }
 .head h1{
   background-color: white;
-  color: #C1D72E;
+  color: #EF0323;
   margin-top: 25px;
   display: inline-block;
   padding: 10px;
@@ -72,16 +72,17 @@ p {
   height: 30px;
   padding-top: 10px;
   background: #fff;
-  color: #c1d72e;
+  color: #EF0323;
   cursor: pointer;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   -khtml-border-radius: 5px;
   border: solid 1px #fff;
+  transition: all .5s;
 }
 #alphabet li:hover {
-  background: #c1d72e;
+  background: #EF0323;
   border: solid 1px #fff;
   color: #fff;
 }
@@ -123,7 +124,7 @@ p {
 
 #mylives {
   position: absolute;
-  top: -20px;
+  top: -10px;
   margin-left: 20px;
   font-size: 1.6em;
   text-align: center;
@@ -135,7 +136,7 @@ button {
   -webkit-border-radius: 5px;
   border-radius: 5px;
   -khtml-border-radius: 5px;
-  background: #c1d72e;
+  background: transparent;
   color: #fff;
   border: solid 1px #fff;
   text-decoration: none;
@@ -145,14 +146,12 @@ button {
   width: 180px;
   margin: 10px;
   outline: none;
+  transition: all 0.3s ease-in-out;
 }
 button:hover {
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
   background: #fff;
   border: solid 1px #fff;
-  color: #c1d72e;
+  color: #EF0323;
 }
 
 @media (max-width: 767px) {
