@@ -181,11 +181,11 @@ window.onload = function () {
         ["everton", "liverpool", "swansea", "chelsea", "manchester-city"],
         ["alien", "dirty-harry", "gladiator", "finding-nemo", "jaws"],
         ["manchester", "milan", "madrid", "amsterdam", "prague"],
-        ["pakistan", "Russia", "China", "Australia", "India"],
-        ["pakistan", "Ireland", "South-Africa", "Australia", "India"]
+        ["pakistan", "russia", "china", "australia", "india"],
+        ["pakistan", "ireland", "south-africa", "australia", "india"]
     ];
 
-    chosenCategory = categories[Math.floor(Math.random() * categories.length)];
+    chosenCategory = categories[document.getElementById("CatList").selectedIndex];
     word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
     word = word.replace(/\s/g, "-");
     console.log(word);
@@ -228,6 +228,9 @@ window.onload = function () {
     showClue.innerHTML = "";
     context.clearRect(0, 0, 400, 400);
     play();
+  }
+  document.getElementById('CatList').onchange = function(){
+    document.getElementById('reset').click();
   }
 }
 
