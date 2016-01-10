@@ -32,14 +32,14 @@ window.onload = function () {
       list = document.createElement('li');
       list.id = 'letter';
       list.innerHTML = alphabet[i];
+      myButtons.appendChild(letters);
+      letters.appendChild(list);
       check();
       if (word.split('').indexOf(alphabet[i].toLowerCase()) !== -1){
         if (isVovel(alphabet[i])){
           list.click();
         }
       }
-      myButtons.appendChild(letters);
-      letters.appendChild(list);
     }
   }
     
@@ -73,9 +73,6 @@ window.onload = function () {
       if (word[i] === "-") {
         guess.innerHTML = "-";
         space = 1;
-      } else if (isVovel(word[i])){
-        guess.innerHTML = word[i];
-        counter +=1
       } else {
         guess.innerHTML = "_";
       }
@@ -204,13 +201,13 @@ window.onload = function () {
     word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
     word = word.replace(/\s/g, "-");
     console.log(word);
-    buttons();
 
     geusses = [ ];
     lives = 5;
     counter = 0;
     space = 0;
     result();
+    buttons();
     comments();
     selectCat();
     canvas();
