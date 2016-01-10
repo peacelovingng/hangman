@@ -85,10 +85,16 @@ window.onload = function () {
     }
     if (lives < 1) {
       showLives.innerHTML = "Game Over";
+      document.getElementById('winloose').src = "http://data.whicdn.com/images/51332573/large.gif";
+      document.getElementsByTagName("h2")[0].innerHTML = "Game Over!"
+      document.getElementById('modal').click();
+      document.getElementById('reset').click();
     }
     for (var i = 0; i < geusses.length; i++) {
       if (counter + space === geusses.length) {
-        showLives.innerHTML = "You Win!";
+        showLives.innerHTML = "You Won!";
+        document.getElementById('winloose').src = "http://i.giphy.com/9RPcZ1p3yCxtC.gif";
+        document.getElementsByTagName("h2")[0].innerHTML = "You Won!"
         document.getElementById('modal').click();
         document.getElementById('reset').click();
       }
