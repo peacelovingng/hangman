@@ -33,6 +33,11 @@ window.onload = function () {
       list.id = 'letter';
       list.innerHTML = alphabet[i];
       check();
+      if (word.split('').indexOf(alphabet[i].toLowerCase()) !== -1){
+        if (isVovel(alphabet[i])){
+          list.click();
+        }
+      }
       myButtons.appendChild(letters);
       letters.appendChild(list);
     }
@@ -53,7 +58,9 @@ window.onload = function () {
       catagoryName.innerHTML = "The Chosen Category Is Cricket Teams";
     }
   }
-
+  isVovel = function (c) {
+      return ['a', 'e', 'i', 'o', 'u'].indexOf(c.toLowerCase()) !== -1
+  }
   // Create geusses ul
    result = function () {
     wordHolder = document.getElementById('hold');
@@ -66,10 +73,12 @@ window.onload = function () {
       if (word[i] === "-") {
         guess.innerHTML = "-";
         space = 1;
+      } else if (isVovel(word[i])){
+        guess.innerHTML = word[i];
+        counter +=1
       } else {
         guess.innerHTML = "_";
       }
-
       geusses.push(guess);
       wordHolder.appendChild(correct);
       correct.appendChild(guess);
