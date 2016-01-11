@@ -35,9 +35,12 @@ window.onload = function () {
       myButtons.appendChild(letters);
       letters.appendChild(list);
       check();
-      if (word.split('').indexOf(alphabet[i].toLowerCase()) !== -1){
-        if (isVovel(alphabet[i])){
+      if (isVovel(alphabet[i])){
+        if (word.split('').indexOf(alphabet[i].toLowerCase()) !== -1){
           list.click();
+        } else{
+          list.setAttribute("class", "active");
+          list.onclick = null;
         }
       }
     }
@@ -99,6 +102,7 @@ window.onload = function () {
     for (var i = 0; i < geusses.length; i++) {
       if (counter + space === geusses.length) {
         showLives.innerHTML = "You Won!";
+        document.getElementById('winloose').src = '';
         document.getElementById('winloose').src = "http://i.giphy.com/9RPcZ1p3yCxtC.gif";
         document.getElementsByTagName("h2")[0].innerHTML = "You Won!"
         document.getElementById('modal').click();
@@ -237,7 +241,7 @@ window.onload = function () {
   document.getElementById('reset').onclick = function() {
     correct.parentNode.removeChild(correct);
     letters.parentNode.removeChild(letters);
-    showClue.innerHTML = "";
+    showClue.innerHTML = "Clue -";
     context.clearRect(0, 0, 400, 400);
     play();
   }
